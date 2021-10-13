@@ -26,9 +26,13 @@ const TodoList = () => {
   ]);
 
   const addTodo = (value) => {
-    const addedTodo = [...todos, { text: value, isCompleted: false }];
-
-    setTodos(addedTodo);
+    // Allow 10 todo
+    if (todos.length < 10) {
+      const addedTodo = [...todos, { text: value, isCompleted: false }];
+      setTodos(addedTodo);
+    } else {
+      alert("only 10 todo");
+    }
   };
 
   // cretae state to toggle Add Show Form
@@ -44,14 +48,19 @@ const TodoList = () => {
     setTodos(addTodos);
   };
 
-  console.log("todos", todos);
+  // clear todos
+  const clearTodos = () => setTodos([]);
 
   return (
     // JSX file
     <div className="App">
       <Paper>
         {/* header section */}
-        <Header showToggleAdd={showToggleAdd} showAddState={addShow} />
+        <Header
+          showToggleAdd={showToggleAdd}
+          showAddState={addShow}
+          clearTodos={clearTodos}
+        />
 
         {/* Todo form section */}
         <TodoForm addTodo={addTodo} showAdd={addShow} />
