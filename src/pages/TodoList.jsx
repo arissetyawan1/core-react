@@ -4,6 +4,7 @@ import Paper from "../components/paper";
 import Header from "../components/header";
 import TodoForm from "../components/todo-form";
 import Todos from "../components/todos";
+
 const TodoList = () => {
   const [todos, setTodos] = useState([
     {
@@ -19,6 +20,13 @@ const TodoList = () => {
       text: "Belajar State React"
     }
   ]);
+
+  const addTodo = (value) => {
+    const addedTodo = [...todos, { text: value }];
+
+    setTodos(addedTodo);
+  };
+
   return (
     // JSX file
     <div className="App">
@@ -27,7 +35,7 @@ const TodoList = () => {
         <Header />
 
         {/* Todo form section */}
-        <TodoForm />
+        <TodoForm addTodo={addTodo} />
 
         {/* Todos list */}
         <Todos todos={todos} />
