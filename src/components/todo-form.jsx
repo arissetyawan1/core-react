@@ -8,6 +8,8 @@ const TodoForm = ({ addTodo, showAdd }) => {
 
     if (!value) {
       alert("Please, Insert value!");
+    } else if (value.length > 35) {
+      alert("Kepanjangan, tolong diperpendek");
     } else {
       alert(value);
       addTodo(value);

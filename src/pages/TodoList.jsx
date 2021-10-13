@@ -8,21 +8,25 @@ import Todos from "../components/todos";
 const TodoList = () => {
   const [todos, setTodos] = useState([
     {
-      text: "Belajar React 1"
+      text: "Belajar React 1",
+      isCompleted: false
     },
     {
-      text: "Belajar Component React"
+      text: "Belajar Component React",
+      isCompleted: false
     },
     {
-      text: "Belajar Layouting React"
+      text: "Belajar Layouting React",
+      isCompleted: false
     },
     {
-      text: "Belajar State React"
+      text: "Belajar State React",
+      isCompleted: false
     }
   ]);
 
   const addTodo = (value) => {
-    const addedTodo = [...todos, { text: value }];
+    const addedTodo = [...todos, { text: value, isCompleted: false }];
 
     setTodos(addedTodo);
   };
@@ -32,18 +36,28 @@ const TodoList = () => {
 
   const showToggleAdd = () => setAddShow(!addShow);
 
+  // complete course
+  const completeTodo = (index) => {
+    const addTodos = [...todos];
+
+    addTodos[index].isCompleted = !addTodos[index].isCompleted;
+    setTodos(addTodos);
+  };
+
+  console.log("todos", todos);
+
   return (
     // JSX file
     <div className="App">
       <Paper>
         {/* header section */}
-        <Header showToggleAdd={showToggleAdd} />
+        <Header showToggleAdd={showToggleAdd} showAddState={addShow} />
 
         {/* Todo form section */}
         <TodoForm addTodo={addTodo} showAdd={addShow} />
 
         {/* Todos list */}
-        <Todos todos={todos} />
+        <Todos todos={todos} completeTodo={completeTodo} />
       </Paper>
     </div>
   );
