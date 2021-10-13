@@ -27,15 +27,20 @@ const TodoList = () => {
     setTodos(addedTodo);
   };
 
+  // cretae state to toggle Add Show Form
+  const [addShow, setAddShow] = useState(false);
+
+  const showToggleAdd = () => setAddShow(!addShow);
+
   return (
     // JSX file
     <div className="App">
       <Paper>
         {/* header section */}
-        <Header />
+        <Header showToggleAdd={showToggleAdd} />
 
         {/* Todo form section */}
-        <TodoForm addTodo={addTodo} />
+        <TodoForm addTodo={addTodo} showAdd={addShow} />
 
         {/* Todos list */}
         <Todos todos={todos} />
