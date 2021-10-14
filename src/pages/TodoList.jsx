@@ -49,7 +49,7 @@ const TodoList = () => {
   };
 
   // clear todos
-  const clearTodos = () => setTodos([]);
+  const clearTodos = () => !addShow && setTodos([]);
 
   return (
     // JSX file
