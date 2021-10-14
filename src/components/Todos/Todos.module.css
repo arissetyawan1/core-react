@@ -1,0 +1,12 @@
+/* todos styling */
+.todos {
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+}
+/* placeholder style */
+.placeholderText {
+  text-align: center;
+  padding: 16px;
+  font-size: 24px;
+}

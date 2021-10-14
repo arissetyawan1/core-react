@@ -1,0 +1,24 @@
+/* Button style */
+.mainRedColor {
+  color: var(--main-red-color);
+}
+.blackColor {
+  color: var(--black-color);
+}
+.headerBtn {
+  font: size 1.8rem;
+  font-family: "Bungee", sans-serif;
+  padding: 16px;
+  cursor: pointer;
+  background: unset;
+  border: unset;
+  outline: unset;
+}
+
+.headerBtn.mainRedColor:active {
+  text-shadow: 1px 1px 2px var(--main-red-color);
+}
+
+.headerBtn.blackColor:active {
+  text-shadow: 1px 1px 2px var(--black-color);
+}

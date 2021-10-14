@@ -1,9 +1,11 @@
 import React from "react";
-import Todo from "./todo";
+import Todo from "../Todo/todo";
 
+// import style module css
+import styles from "./Todos.module.css";
 const Todos = ({ todos, completeTodo }) => {
   return (
-    <section className="todos">
+    <section className={styles.todos}>
       {todos.length > 0 &&
         todos.map((todo, index) => {
           return (
@@ -17,7 +19,7 @@ const Todos = ({ todos, completeTodo }) => {
           );
         })}
       {todos.length === 0 && (
-        <div className="placeholder-text">
+        <div className={styles.placeholderText}>
           Klik ADD button di header untuk menambahkan data
         </div>
       )}

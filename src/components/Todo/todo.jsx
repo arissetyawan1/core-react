@@ -1,10 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
+
+// import style module
+import styles from "./Todo.module.css";
 const Todo = ({ text, completeTodo, index, isCompletedTodo }) => {
   return (
-    <div className="todo" onClick={() => completeTodo(index)}>
+    <div className={styles.todo} onClick={() => completeTodo(index)}>
       <span
-        className="todo-text"
+        className={styles.todoText}
         style={{ textDecoration: isCompletedTodo ? "line-through" : "initial" }}
       >
         {text}
