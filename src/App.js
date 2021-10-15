@@ -7,7 +7,9 @@ const theme = {
   color: {
     primary: {
       black: "#222222",
-      red: "#e42929"
+      red: "#e42929",
+      cream: "#fceeeb",
+      gray: "#484848"
     }
   }
 };

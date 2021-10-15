@@ -1,8 +1,12 @@
+/** @jsxImportSource @emotion/react */
+import { useTheme } from "@emotion/react";
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 // import style module css
-import styles from "./TodoForm.module.css";
+// import styles from "./TodoForm.module.css";
+
+import * as styles from "./TodoForm.styles";
 const TodoForm = ({ addTodo, showAdd }) => {
   const [value, setValue] = useState("");
 
@@ -19,17 +23,32 @@ const TodoForm = ({ addTodo, showAdd }) => {
       setValue("");
     }
   };
+
+  const theme = useTheme();
   if (showAdd) {
     return (
-      <section className={styles.add}>
-        <form action="" className={styles.addForm} onSubmit={handleFormInput}>
+      // <section className={styles.add}>
+      //   <form action="" className={styles.addForm} onSubmit={handleFormInput}>
+      //     <input
+      //       type="text"
+      //       className={styles.addInput}
+      //       value={value}
+      //       onChange={(e) => setValue(e.target.value)}
+      //     />
+      //     <button className={styles.addBtn}>Add</button>
+      //   </form>
+      // </section>
+
+      // using theme and css in js
+      <section css={styles.add}>
+        <form action="" css={styles.addForm} onSubmit={handleFormInput}>
           <input
             type="text"
-            className={styles.addInput}
+            css={styles.addInput(theme)}
             value={value}
             onChange={(e) => setValue(e.target.value)}
           />
-          <button className={styles.addBtn}>Add</button>
+          <button css={styles.addBtn(theme)}>Add</button>
         </form>
       </section>
     );
